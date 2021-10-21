@@ -1,8 +1,26 @@
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.icon {
+  stroke: var(--r-main-color);
+}
+
+.ensemble {
+  display: flex;
+  margin: 1em 0;
+  gap: 3vw;
+  justify-content: center;
+}
+
+.ensemble > .het-1 {
+  stroke: #85c1e9;
+}
+
+.ensemble > .het-2 {
+  stroke: #f4d03f;
+}
+
+.ensemble > .het-3 {
+  stroke: #117864;
+}
+
+.ensemble > .het-4 {
+  stroke: #e74c3c;
 }

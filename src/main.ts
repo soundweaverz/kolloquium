@@ -6,6 +6,8 @@ import "reveal.js/dist/reveal.css";
 import "reveal.js/dist/theme/night.css";
 import "katex/dist/katex.css";
 
+import "./style.css";
+
 let deck = new Reveal({
   plugins: [Markdown],
 });
