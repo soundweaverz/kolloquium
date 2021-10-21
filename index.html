@@ -139,6 +139,7 @@
             </ul>
           </section>
           <section>
+            = 0.05, momentum = 0.9, weight decay = $ ~ 3 5\times 10^{-4}
             <h3>Bayesian neural networks</h3>
             <ul>
               <li>Based on Bayes' theorem</li>
@@ -491,6 +492,13 @@
             </ul>
           </section>
           <section>
+            <h3>Datasets</h3>
+            <ul>
+              <li>In-distribution: MNIST, SVHN</li>
+              <li>Out-of-distribution: notMNIST, CIFAR-10</li>
+            </ul>
+          </section>
+          <section>
             <h3>Training</h3>
             <ul>
               <li>
@@ -507,7 +515,54 @@
           </section>
         </section>
         <section>
-          <h3>Results</h3>
+          <section>
+            <h3>Results</h3>
+          </section>
+          <section>
+            <h3>Classification</h3>
+            <img src="/assets/mnist.png" />
+          </section>
+          <section>
+            <h5>Comparable performance in classification!</h5>
+          </section>
+          <section>
+            <h3>Uncertainty quantification</h3>
+            <div class="r-stack">
+              <img
+                class="fragment fade-out"
+                data-fragment-index="0"
+                src="/assets/entropy-in-dist.png"
+              />
+              <img
+                class="fragment current-visible"
+                data-fragment-index="0"
+                src="/assets/entropy-out-dist.png"
+              />
+            </div>
+          </section>
+          <section>
+            <h3>Diversity analysis</h3>
+            <img src="/assets/kl-divergence.png" />
+          </section>
+          <section>
+            <h3>AUROC: In-distribution vs out-of-distribution</h3>
+            <img src="/assets/auroc.png" />
+          </section>
+          <section>
+            <h3>Takeaways</h3>
+            <ol>
+              <li>
+                Heterogeneous ensembles are not better at classification tasks
+                than their homogeneous counterparts.
+              </li>
+              <li>
+                While the results are not as significant as expected, using the
+                first technique, or the second technique with modified unit
+                count might be a way to easier identify out-of-distribution
+                examples.
+              </li>
+            </ol>
+          </section>
         </section>
         <section>
           <h3>Outlook</h3>
