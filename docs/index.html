@@ -63,9 +63,21 @@
                 The more uniform the probability distribution, the higher the
                 uncertainty.
               </li>
-              <li>
+              <li class="fragment fade-in">
                 There is no uncertainty if the outcome of an event is known
                 beforehand.
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h3>One important distinction</h3>
+            <ul>
+              <li>
+                <em>Epistemic</em> uncertainty: Due to limited amount of data
+              </li>
+              <li class="fragment fade-in">
+                <em>Aleatory</em> uncertainty: Inherent variance due irreducible
+                noise in the data
               </li>
             </ul>
           </section>
@@ -84,13 +96,13 @@
                 important for <em>full self-driving</em>
                 cars.
               </li>
-              <li>
+              <li class="fragment fade-in">
                 Miscategorizing road signs or misidentifying unrelated signs
                 pose a real danger.
                 <ul>
-                  <li>
+                  <li class="fragment fade-in">
                     This might be facilitated by a malicious actor (<em
-                      >Adversarial examples</em
+                      >Adversarial attack</em
                     >).
                   </li>
                 </ul>
@@ -111,7 +123,9 @@
                 information it contains
               </li>
             </ul>
-            <p>\[ H(X) = -\sum_{i=1}^n P(x_i) \log P(x_i) \]</p>
+            <p class="fragment fade-in">
+              \[ H(X) = -\sum_{i=1}^n P(x_i) \log P(x_i) \]
+            </p>
           </section>
           <section>
             <h3>Kullback-Leibler divergence</h3>
@@ -120,7 +134,7 @@
                 Evaluate differences between two probability distributions
               </li>
             </ul>
-            <p>
+            <p class="fragment fade-in">
               \[ D_{KL}(P\mid\mid Q) = \sum_{x\in X} P(x) \log \frac{P(x)}{Q(x)}
               \]
             </p>
@@ -135,22 +149,21 @@
             <ul>
               <li>$ \{\theta_1,\theta_2,\dots,\theta_M\} \in \Theta $</li>
               <li>Either</li>
-              <ul>
+              <ul class="fragment fade-in">
                 <li>Select best $ \theta_m \in \Theta $</li>
                 <li>Combine preditions of multiple $ \theta_m \in \Theta $</li>
               </ul>
             </ul>
           </section>
           <section>
-            = 0.05, momentum = 0.9, weight decay = $ ~ 3 5\times 10^{-4}
             <h3>Bayesian neural networks</h3>
             <ul>
               <li>Based on Bayes' theorem</li>
-              <li>
+              <li class="fragment fade-in">
                 Learn weight distributions to account for
                 <em>epistemic uncertainty</em>
               </li>
-              <li>
+              <li class="fragment fade-in">
                 Using a distribution as output captures
                 <em>aleatory uncertaity</em>
               </li>
@@ -160,9 +173,9 @@
             <h3>Dropout</h3>
             <ul>
               <li>Usually used to prevent overfitting during training</li>
-              <li>Literally drops out units</li>
-              <li>Regularizes deep neural network</li>
-              <li>
+              <li class="fragment fade-in">Literally drops out units</li>
+              <li class="fragment fade-in">Regularizes deep neural network</li>
+              <li class="fragment fade-in">
                 Can also be used during testing to generate multiple predictions
               </li>
             </ul>
@@ -247,15 +260,15 @@
               </svg>
             </div>
             <ul>
-              <li>Same neural architecture for each network</li>
-              <li>Methods: Bagging, Boosting</li>
-              <li>Choose $ \{\theta_1,\dots,\theta_M\} \in \Theta $</li>
-              <li>
+              <li class="fragment fade-in">Same neural architecture for each network</li>
+              <li class="fragment fade-in">Methods: Bagging, Boosting</li>
+              <li class="fragment fade-in">Choose $ \{\theta_1,\dots,\theta_M\} \in \Theta $</li>
+              <li class="fragment fade-in">
                 Weighted average:<br />
                 $ \hat{p}(y|x) = M^{-1} \sum_{m=1}^M c_m \cdot p_{\theta_m}(y|x)
                 $
               </li>
-              <li>Size bigger than five doesn't lead to better results</li>
+              <li class="fragment fade-in">Size bigger than five doesn't lead to better results</li>
             </ul>
           </section>
           <section>
@@ -338,9 +351,9 @@
               </svg>
             </div>
             <ul>
-              <li>Different neural architectures for each network</li>
-              <li>Methods: Bagging, stacking</li>
-              <li>
+              <li class="fragment fade-in">Different neural architectures for each network</li>
+              <li class="fragment fade-in">Methods: Bagging, stacking</li>
+              <li class="fragment fade-in">
                 Choose $ \{\theta_1,\dots,\theta_M\} \in \hat{\Theta} =
                 \bigcup_{n=1}^N \Theta_n $
               </li>
@@ -362,11 +375,11 @@
               \varepsilon\cdot\operatorname{sgn}(\nabla_{x_i}
               J(\theta,x_i,y_i)),x_{max},y_{max}) \]
             </p>
-            <p>
+            <p class="fragment fade-in">
               \[ \tilde{J}(\theta,x,x_{adv},y) = (1 - \alpha)J(\theta,x,y) +
               \alpha\cdot J(\theta, x_{adv}, y) \]
             </p>
-            <h5>
+            <h5 class="fragment fade-in">
               Result: You optimize around an $ l_{\infty} $-ball instead of a
               specific point!
             </h5>
@@ -375,11 +388,11 @@
         <section>
           <h3>What value does the thesis provide?</h3>
           <ol>
-            <li>
+            <li class="fragment fade-in">
               Analyze if heterogeneous ensembles perform better at
               classification tasks.
             </li>
-            <li>
+            <li class="fragment fade-in">
               Answer the question if specific neural network architectures in
               heterogeneous ensembles lead to better uncertainty quantification.
             </li>
@@ -406,7 +419,7 @@
                 modifying the amount of layers and neurons for each architecture
                 at the same time.
               </li>
-              <li>
+              <li class="fragment fade-in">
                 Technique 2: Create <em>dumb</em> and <em>smart</em> models so
                 that the complexity is averaged out.
               </li>
@@ -508,9 +521,9 @@
                 SGD optimizer (lr = 0.05, momentum = 0.9, weight decay = $
                 5\times 10^{-4} $), lr halfed every fifth epoch
               </li>
-              <li>Validation split: 20% of training data</li>
-              <li>Loss function: Cross entropy loss</li>
-              <li>
+              <li class="fragment fade-in">Validation split: 20% of training data</li>
+              <li class="fragment fade-in">Loss function: Cross entropy loss</li>
+              <li class="fragment fade-in">
                 Ensemble prediction:<br />
                 $ p(y\mid x) = M^{-1}\sum_{m=1}^M p_{\theta_m}(y\mid x) $
               </li>
@@ -558,11 +571,16 @@
                 Heterogeneous ensembles are not better at classification tasks
                 than their homogeneous counterparts.
               </li>
-              <li>
+              <li class="fragment fade-in">
                 While the results are not as significant as expected, using the
                 first technique, or the second technique with modified unit
                 count might be a way to easier identify out-of-distribution
                 examples.
+              </li>
+              <li class="fragment fade-in">
+                Using adversarial training doesn't improve performance at
+                classification task but might help at detecting
+                out-of-distribution examples.
               </li>
             </ol>
           </section>
@@ -573,25 +591,6 @@
             <li>Use stacking for combining heterogeneous deep ensembles.</li>
             <li>Use different optimizers.</li>
           </ul>
-          <h3>How can you quantify uncertainty?</h3>
-        </section>
-        <section>
-          <h3>What is ensemble learning?</h3>
-        </section>
-        <section>
-          <h3>What are adversarial examples?</h3>
-        </section>
-        <section>
-          <h3>What value does the thesis provide?</h3>
-        </section>
-        <section>
-          <h3>Setup and Design</h3>
-        </section>
-        <section>
-          <h3>Results</h3>
-        </section>
-        <section>
-          <h3>Outlook</h3>
         </section>
         <section>
           <h3>Personal takeaways</h3>
