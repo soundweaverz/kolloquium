@@ -70,7 +70,7 @@
             </ul>
           </section>
           <section>
-            <h3>One important distinction</h3>
+            <h3>One important distinction<sup>1</sup></h3>
             <ul>
               <li>
                 <em>Epistemic</em> uncertainty: Due to limited amount of data
@@ -98,7 +98,7 @@
               </li>
               <li class="fragment fade-in">
                 Miscategorizing road signs or misidentifying unrelated signs
-                pose a real danger.
+                pose a real danger.<sup>2</sup>
                 <ul>
                   <li class="fragment fade-in">
                     This might be facilitated by a malicious actor (<em
@@ -117,7 +117,7 @@
           <section>
             <h3>Entropy</h3>
             <ul>
-              <li>Shannon entropy</li>
+              <li>Shannon entropy<sup>3</sup></li>
               <li>
                 The entropy of a random variable describes the amount of
                 information it contains
@@ -128,7 +128,7 @@
             </p>
           </section>
           <section>
-            <h3>Kullback-Leibler divergence</h3>
+            <h3>Kullback-Leibler divergence<sup>4</sup></h3>
             <ul>
               <li>
                 Evaluate differences between two probability distributions
@@ -156,9 +156,9 @@
             </ul>
           </section>
           <section>
-            <h3>Bayesian neural networks</h3>
+            <h3>Bayesian neural networks<sup>5</sup></h3>
             <ul>
-              <li>Based on Bayes' theorem</li>
+              <li>Based on Bayes' theorem<sup>6</sup></li>
               <li class="fragment fade-in">
                 Learn weight distributions to account for
                 <em>epistemic uncertainty</em>
@@ -172,11 +172,14 @@
           <section>
             <h3>Dropout</h3>
             <ul>
-              <li>Usually used to prevent overfitting during training</li>
+              <li>
+                Usually used to prevent overfitting during training<sup>7</sup>
+              </li>
               <li class="fragment fade-in">Literally drops out units</li>
               <li class="fragment fade-in">Regularizes deep neural network</li>
               <li class="fragment fade-in">
-                Can also be used during testing to generate multiple predictions
+                Can also be used during testing to generate multiple
+                predictions<sup>8</sup>
               </li>
             </ul>
           </section>
@@ -268,12 +271,14 @@
                 Choose $ \{\theta_1,\dots,\theta_M\} \in \Theta $
               </li>
               <li class="fragment fade-in">
-                Weighted average:<br />
+                Weighted average<sup>9</sup>:<br />
                 $ \hat{p}(y|x) = M^{-1} \sum_{m=1}^M c_m \cdot p_{\theta_m}(y|x)
                 $
               </li>
               <li class="fragment fade-in">
-                Size bigger than five doesn't lead to better results
+                Size bigger than five doesn't lead to better results<sup
+                  >10</sup
+                >
               </li>
             </ul>
           </section>
@@ -360,7 +365,9 @@
               <li class="fragment fade-in">
                 Different neural architectures for each network
               </li>
-              <li class="fragment fade-in">Methods: Bagging, stacking</li>
+              <li class="fragment fade-in">
+                Methods: Bagging, stacking<sup>11</sup>
+              </li>
               <li class="fragment fade-in">
                 Choose $ \{\theta_1,\dots,\theta_M\} \in \hat{\Theta} =
                 \bigcup_{n=1}^N \Theta_n $
@@ -377,7 +384,7 @@
             <img src="/kolloquium/assets/adversarial-examples.febd3af1.png" />
           </section>
           <section>
-            <h3>Adversarial training</h3>
+            <h3>Adversarial training<sup>12,13</sup></h3>
             <p>
               \[ x_{adv} = \operatorname{clamp}(x +
               \varepsilon\cdot\operatorname{sgn}(\nabla_{x_i}
@@ -389,7 +396,7 @@
             </p>
             <h5 class="fragment fade-in">
               Result: You optimize around an $ l_{\infty} $-ball instead of a
-              specific point!
+              specific point!<sup>13</sup>
             </h5>
           </section>
         </section>
@@ -613,6 +620,112 @@
         </section>
         <section>
           <h3>Personal takeaways</h3>
+        </section>
+        <section>
+          <section>
+            <h3>References</h3>
+          </section>
+          <section>
+            <ul>
+              <li>
+                [1]: Armen Der Kiureghian and Ove Ditlevsen. "Aleatory or
+                epistemic? Does it matter?" In: <em>Structural safety</em> 31.2
+                (2009), pp. 105-112.
+              </li>
+              <li>
+                [2]: Chawin Sitawarin, Arjun Nitin Bhagoji, Arsalan Mosenia,
+                Mung Chiang, and Prateek Mittal. "Darts: Deceiving autonomous
+                cars with toxic signs". In:
+                <em>arXiV preprint arXiV:1802.06430</em> (2018).
+              </li>
+            </ul>
+          </section>
+          <section>
+            <ul>
+              <li>
+                [3]: Claude Elwood Shannon. "A mathematical theory of
+                communication". In:
+                <em>The Bell system technical journal</em> 27.3 (1948), pp.
+                379-423.
+              </li>
+              <li>
+                [4]: Solomon Kullback and Richard A Leibler. "On information and
+                sufficiency". In:
+                <em>The annals of mathematical statistics</em> 22.1 (1951), pp.
+                79-86.
+              </li>
+            </ul>
+          </section>
+          <section>
+            <ul>
+              <li>
+                [5]: David JC MacKay. "A practical Bayesian framework for
+                backpropagation networks". In: <em>Neural computation</em> 4.3
+                (1992), pp. 448-472.
+              </li>
+              <li>
+                [6]: José M Bernando and Adrian FM Smith.
+                <em>Bayesian theory</em>. Vol. 405. John Wiley &amp; Sons, 2009.
+              </li>
+            </ul>
+          </section>
+          <section>
+            <ul>
+              <li>
+                [7]: Yarin Gal and Zoubin Ghahramani. "Dropout as a bayesian
+                approximation: Representing model uncertainty in deep learning".
+                In: <em>international conference on machine learning</em>. PMLR.
+                2016, pp. 1050-1059.
+              </li>
+              <li>
+                [8]: Nitish Srivastava, Geoffrey Hinton, Alex Krizhevsky, Ilya
+                Sutskever, and Ruslan Salakhutdinov. "Dropout: a simple way to
+                prevent neural networks from overfitting". In:
+                <em>The journal of machine learning research</em> 15.1 (2014),
+                pp. 1929-1958.
+              </li>
+            </ul>
+          </section>
+          <section>
+            <ul>
+              <li>
+                [9]: William P Lincoln and Josef Skrzypek. "Synergy of
+                clustering multiple back propagation networks". In:
+                <em>Advances in neural informatio processing systems</em>. 1990,
+                pp. 650-657.
+              </li>
+              <li>
+                [10]: Balaji Lakshminarayanan, Alexander Pritzel, and Charles
+                Blundell. "Simple and scalable predicitve uncertainty estimation
+                using deep ensembles.". In:
+                <em>arXiV preprint arXiV:1612.01474</em> (2016).
+              </li>
+            </ul>
+          </section>
+          <section>
+            <ul>
+              <li>
+                [11]: Peter Bühlmann. "Bagging, boosting and ensemble methods".
+                In: <em>Handbook of computational statistics</em>. Springer,
+                2012, pp. 985-1022.
+              </li>
+              <li>
+                [12]: Ian J Goodfellow, Jonathan Shlens, and Christian Szegedy.
+                "Explaining and harnesssing adversarial examples." In:
+                <em>arXiV preprint arXiV:1412.6572</em> (2014).
+              </li>
+            </ul>
+          </section>
+          <section>
+            <ul>
+              <li>
+                [13]: Aleksander Madry, Aleksandar Makelov, Ludwig Schmidt,
+                Dimitris Tsipras, and Adrian Vladu. "Towards deep learning
+                models resistant to adversarial attack". In:
+                <em>arXiV preprint arXiV:1706.06083</em> (2017).
+              </li>
+            </ul>
+          </section>
         </section>
       </div>
     </div>
