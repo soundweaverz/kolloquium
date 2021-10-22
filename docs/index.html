@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/kolloquium/assets/favicon.17e50649.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kolloquium</title>
+    <script type="module" crossorigin src="/kolloquium/assets/index.d56eac01.js"></script>
+    <link rel="modulepreload" href="/kolloquium/assets/vendor.bfa9c9e3.js">
+    <link rel="stylesheet" href="/kolloquium/assets/index.c58ed2fa.css">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h2>Strength in diversity?</h2>
+          <h5>
+            The effect of
+            <span class="fragment highlight-red">heterogeneous</span> deep
+            ensembles on
+            <span class="fragment highlight-red" data-fragment-index="1">
+              uncertainty
+            </span>
+            quantification
+          </h5>
+        </section>
+        <section>
+          <section>
+            <h3>What is uncertainty?</h3>
+          </section>
+          <section>
+            <ul>
+              <li>Many different definitions...</li>
+              <li class="fragment fade-in">
+                Many different ways to categorize...
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h3>Imagine...</h3>
+            <p>...you are playing ludo with your friends and it's your turn.</p>
+            <p class="fragment fade-in">
+              What result do you expect when you throw the dice?
+            </p>
+          </section>
+          <section>
+            <h5>Each outcome has the same probability!</h5>
+          </section>
+          <section>
+            <h3>Imagine...</h3>
+            <p>...you use a loaded dice to throw more 6s than your friends.</p>
+            <p class="fragment fade-in">
+              What result do you expect when you throw the dice?
+            </p>
+          </section>
+          <section>
+            <h5>One event is more probable than the others!</h5>
+          </section>
+          <section>
+            <h3>Conclusions</h3>
+            <ul>
+              <li>
+                The more uniform the probability distribution, the higher the
+                uncertainty.
+              </li>
+              <li class="fragment fade-in">
+                There is no uncertainty if the outcome of an event is known
+                beforehand.
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h3>One important distinction</h3>
+            <ul>
+              <li>
+                <em>Epistemic</em> uncertainty: Due to limited amount of data
+              </li>
+              <li class="fragment fade-in">
+                <em>Aleatory</em> uncertainty: Inherent variance due irreducible
+                noise in the data
+              </li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h3>
+              Why does uncertainty play a role in artificial intelligence?
+            </h3>
+          </section>
+          <section>
+            <h3>Example: Road sign detection</h3>
+            <ul>
+              <li>
+                Detecting and correctly categorizing a road sign is very
+                important for <em>full self-driving</em>
+                cars.
+              </li>
+              <li class="fragment fade-in">
+                Miscategorizing road signs or misidentifying unrelated signs
+                pose a real danger.
+                <ul>
+                  <li class="fragment fade-in">
+                    This might be facilitated by a malicious actor (<em
+                      >Adversarial attack</em
+                    >).
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h3>How can you quantify uncertainty?</h3>
+          </section>
+          <section>
+            <h3>Entropy</h3>
+            <ul>
+              <li>Shannon entropy</li>
+              <li>
+                The entropy of a random variable describes the amount of
+                information it contains
+              </li>
+            </ul>
+            <p class="fragment fade-in">
+              \[ H(X) = -\sum_{i=1}^n P(x_i) \log P(x_i) \]
+            </p>
+          </section>
+          <section>
+            <h3>Kullback-Leibler divergence</h3>
+            <ul>
+              <li>
+                Evaluate differences between two probability distributions
+              </li>
+            </ul>
+            <p class="fragment fade-in">
+              \[ D_{KL}(P\mid\mid Q) = \sum_{x\in X} P(x) \log \frac{P(x)}{Q(x)}
+              \]
+            </p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h3>What is ensemble learning?</h3>
+          </section>
+          <section>
+            <h3>In general...</h3>
+            <ul>
+              <li>$ \{\theta_1,\theta_2,\dots,\theta_M\} \in \Theta $</li>
+              <li>Either</li>
+              <ul class="fragment fade-in">
+                <li>Select best $ \theta_m \in \Theta $</li>
+                <li>Combine preditions of multiple $ \theta_m \in \Theta $</li>
+              </ul>
+            </ul>
+          </section>
+          <section>
+            <h3>Bayesian neural networks</h3>
+            <ul>
+              <li>Based on Bayes' theorem</li>
+              <li class="fragment fade-in">
+                Learn weight distributions to account for
+                <em>epistemic uncertainty</em>
+              </li>
+              <li class="fragment fade-in">
+                Using a distribution as output captures
+                <em>aleatory uncertaity</em>
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h3>Dropout</h3>
+            <ul>
+              <li>Usually used to prevent overfitting during training</li>
+              <li class="fragment fade-in">Literally drops out units</li>
+              <li class="fragment fade-in">Regularizes deep neural network</li>
+              <li class="fragment fade-in">
+                Can also be used during testing to generate multiple predictions
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h3>Homogeneous Ensembles</h3>
+            <div class="ensemble">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon icon-tabler icon-tabler-user"
+                width="44"
+                height="44"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <circle cx="12" cy="7" r="4" />
+                <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+              </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon icon-tabler icon-tabler-user"
+                width="44"
+                height="44"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <circle cx="12" cy="7" r="4" />
+                <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+              </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon icon-tabler icon-tabler-user"
+                width="44"
+                height="44"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <circle cx="12" cy="7" r="4" />
+                <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+              </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon icon-tabler icon-tabler-user"
+                width="44"
+                height="44"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <circle cx="12" cy="7" r="4" />
+                <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+              </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon icon-tabler icon-tabler-user"
+                width="44"
+                height="44"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <circle cx="12" cy="7" r="4" />
+                <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+              </svg>
+            </div>
+            <ul>
+              <li class="fragment fade-in">
+                Same neural architecture for each network
+              </li>
+              <li class="fragment fade-in">Methods: Bagging, Boosting</li>
+              <li class="fragment fade-in">
+                Choose $ \{\theta_1,\dots,\theta_M\} \in \Theta $
+              </li>
+              <li class="fragment fade-in">
+                Weighted average:<br />
+                $ \hat{p}(y|x) = M^{-1} \sum_{m=1}^M c_m \cdot p_{\theta_m}(y|x)
+                $
+              </li>
+              <li class="fragment fade-in">
+                Size bigger than five doesn't lead to better results
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h3>Heterogeneous Ensembles</h3>
+            <div class="ensemble">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon icon-tabler icon-tabler-user het-1"
+                width="44"
+                height="44"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <circle cx="12" cy="7" r="4" />
+                <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+              </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon icon-tabler icon-tabler-user het-2"
+                width="44"
+                height="44"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <circle cx="12" cy="7" r="4" />
+                <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+              </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon icon-tabler icon-tabler-user"
+                width="44"
+                height="44"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <circle cx="12" cy="7" r="4" />
+                <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+              </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon icon-tabler icon-tabler-user het-3"
+                width="44"
+                height="44"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <circle cx="12" cy="7" r="4" />
+                <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+              </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon icon-tabler icon-tabler-user het-4"
+                width="44"
+                height="44"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <circle cx="12" cy="7" r="4" />
+                <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+              </svg>
+            </div>
+            <ul>
+              <li class="fragment fade-in">
+                Different neural architectures for each network
+              </li>
+              <li class="fragment fade-in">Methods: Bagging, stacking</li>
+              <li class="fragment fade-in">
+                Choose $ \{\theta_1,\dots,\theta_M\} \in \hat{\Theta} =
+                \bigcup_{n=1}^N \Theta_n $
+              </li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h3>What are adversarial examples?</h3>
+          </section>
+          <section>
+            <h3>An example</h3>
+            <img src="/kolloquium/assets/adversarial-examples.febd3af1.png" />
+          </section>
+          <section>
+            <h3>Adversarial training</h3>
+            <p>
+              \[ x_{adv} = \operatorname{clamp}(x +
+              \varepsilon\cdot\operatorname{sgn}(\nabla_{x_i}
+              J(\theta,x_i,y_i)),x_{max},y_{max}) \]
+            </p>
+            <p class="fragment fade-in">
+              \[ \tilde{J}(\theta,x,x_{adv},y) = (1 - \alpha)J(\theta,x,y) +
+              \alpha\cdot J(\theta, x_{adv}, y) \]
+            </p>
+            <h5 class="fragment fade-in">
+              Result: You optimize around an $ l_{\infty} $-ball instead of a
+              specific point!
+            </h5>
+          </section>
+        </section>
+        <section>
+          <h3>What value does the thesis provide?</h3>
+          <ol>
+            <li class="fragment fade-in">
+              Analyze if heterogeneous ensembles perform at least as well as
+              homogeneous ensembles in classification tasks.
+            </li>
+            <li class="fragment fade-in">
+              Answer the question if specific neural network architectures in
+              heterogeneous ensembles are better at detecting in- and
+              out-of-distribution examples.
+            </li>
+            <ul class="fragment fade-in">
+              <li>
+                Check if this is due to more diverse model parameters $ \theta
+                $.
+              </li>
+            </ul>
+          </ol>
+        </section>
+        <section>
+          <section>
+            <h3>Setup and Design</h3>
+          </section>
+          <section>
+            <h3>Technology</h3>
+            <ul>
+              <li>Python 3.9.7</li>
+              <li>PyTorch 1.9.0</li>
+              <li>CPU: AMD Ryzen 5 3600</li>
+              <li>GPU: Radeon RX 5700 XT</li>
+            </ul>
+          </section>
+          <section>
+            <h3>Ensemble architecture</h3>
+            <ol>
+              <li>
+                Technique 1: Keep amount of all neural networks the same by
+                modifying the amount of layers and neurons for each architecture
+                at the same time.
+              </li>
+              <li class="fragment fade-in">
+                Technique 2: Create <em>dumb</em> and <em>smart</em> models so
+                that the complexity is averaged out.
+              </li>
+            </ol>
+          </section>
+          <section>
+            <h3>MLP</h3>
+            <img src="/kolloquium/assets/mlp.bcaf13ec.png" />
+          </section>
+          <section>
+            <h3>MLP variants</h3>
+            <ul>
+              <li>
+                <em>Homogeneous</em>: Homogeneous deep ensemble of MLP with
+                three hidden layers and 200 units per layer
+              </li>
+              <li>
+                <em>Dropout</em>: Single model with a dropout layer after each
+                non-linearity
+              </li>
+              <li>
+                <em>Heterogeneous A</em>: Use the first technique to keep the
+                amount if parameters for each $ \theta $ the same.
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h3>MLP variants</h3>
+            <ul>
+              <li>
+                <em>Heterogeneous B</em>: Use the second technique to keep the
+                amount if parameters for each $ \theta $ the same.
+              </li>
+              <li>
+                <em>Heterogeneous C</em>: Use the second technique and use three
+                hidden layers with 50, 125, 200, 275 or 350 units per layer.
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h3>VGG</h3>
+            <img class="r-stretch" src="/kolloquium/assets/vgg.1ffc4250.png" />
+          </section>
+          <section>
+            <h3>VGG variants</h3>
+            <ul>
+              <li><em>Homogeneous</em>: Homogeneous deep ensemble of VGG-11</li>
+              <li>
+                <em>Dropout</em>: Single model with a dropout layer after each
+                non-linearity
+              </li>
+              <li>
+                <em>Heterogeneous A</em>: Use the first technique to keep the
+                amount if parameters for each $ \theta $ the same.
+              </li>
+              <li>
+                <em>Heterogeneous B</em>: Use the second technique and change
+                the amount of layers in the classifier.
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h3>VGG variants</h3>
+            <ul>
+              <li>
+                <em>Heterogeneous C</em>: Use the second technique and change
+                the amount of units per layer in the classifier.
+              </li>
+              <li>
+                <em>Heterogeneous D</em>: Use the second technique and change
+                the amount of layers in the feature extractor.
+              </li>
+              <li>
+                <em>Heterogeneous E</em>: Use the second technique and change
+                the kernel size in the convolutional layers in the feature
+                extractor (2 to 6).
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h3>Classification measurements</h3>
+            <ul>
+              <li>Negative log-likelihood</li>
+              <li>Brier Score</li>
+              <li>Classification error</li>
+            </ul>
+          </section>
+          <section>
+            <h3>Datasets</h3>
+            <ul>
+              <li>In-distribution: MNIST, SVHN</li>
+              <li>Out-of-distribution: notMNIST, CIFAR-10</li>
+            </ul>
+          </section>
+          <section>
+            <h3>Training</h3>
+            <ul>
+              <li>
+                SGD optimizer (lr = 0.05, momentum = 0.9, weight decay = $
+                5\times 10^{-4} $), lr halfed every fifth epoch
+              </li>
+              <li class="fragment fade-in">
+                Validation split: 20% of training data
+              </li>
+              <li class="fragment fade-in">
+                Loss function: Cross entropy loss
+              </li>
+              <li class="fragment fade-in">
+                Ensemble prediction:<br />
+                $ p(y\mid x) = M^{-1}\sum_{m=1}^M p_{\theta_m}(y\mid x) $
+              </li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h3>Results</h3>
+          </section>
+          <section>
+            <h3>Classification</h3>
+            <img src="/kolloquium/assets/mnist.6ef3b00c.png" />
+          </section>
+          <section>
+            <h5>Comparable performance in classification!</h5>
+          </section>
+          <section>
+            <h3>Uncertainty quantification</h3>
+            <div class="r-stack">
+              <img
+                class="fragment fade-out"
+                data-fragment-index="0"
+                src="/kolloquium/assets/entropy-in-dist.628696e5.png"
+              />
+              <img
+                class="fragment current-visible"
+                data-fragment-index="0"
+                src="/kolloquium/assets/entropy-out-dist.3f74ab42.png"
+              />
+            </div>
+          </section>
+          <section>
+            <h3>Diversity analysis</h3>
+            <img src="/kolloquium/assets/kl-divergence.6d46c8af.png" />
+          </section>
+          <section>
+            <h3>AUROC: In-distribution vs out-of-distribution</h3>
+            <img src="/kolloquium/assets/auroc.1dfdbea4.png" />
+          </section>
+          <section>
+            <h3>Takeaways</h3>
+            <ol>
+              <li>
+                Heterogeneous ensembles are not better at classification tasks
+                than their homogeneous counterparts.
+              </li>
+              <li class="fragment fade-in">
+                While the results are not as significant as expected, using the
+                first technique, or the second technique with modified unit
+                count might be a way to easier identify out-of-distribution
+                examples.
+              </li>
+              <li class="fragment fade-in">
+                Using adversarial training doesn't improve performance at
+                classification task but might help at detecting
+                out-of-distribution examples.
+              </li>
+            </ol>
+          </section>
+        </section>
+        <section>
+          <h3>Outlook</h3>
+          <ul>
+            <li>Use stacking for combining heterogeneous deep ensembles.</li>
+            <li>Use different optimizers.</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Personal takeaways</h3>
+        </section>
+      </div>
+    </div>
+    
+  </body>
+</html>
