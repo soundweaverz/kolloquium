@@ -257,15 +257,21 @@
               </svg>
             </div>
             <ul>
-              <li class="fragment fade-in">Same neural architecture for each network</li>
+              <li class="fragment fade-in">
+                Same neural architecture for each network
+              </li>
               <li class="fragment fade-in">Methods: Bagging, Boosting</li>
-              <li class="fragment fade-in">Choose $ \{\theta_1,\dots,\theta_M\} \in \Theta $</li>
+              <li class="fragment fade-in">
+                Choose $ \{\theta_1,\dots,\theta_M\} \in \Theta $
+              </li>
               <li class="fragment fade-in">
                 Weighted average:<br />
                 $ \hat{p}(y|x) = M^{-1} \sum_{m=1}^M c_m \cdot p_{\theta_m}(y|x)
                 $
               </li>
-              <li class="fragment fade-in">Size bigger than five doesn't lead to better results</li>
+              <li class="fragment fade-in">
+                Size bigger than five doesn't lead to better results
+              </li>
             </ul>
           </section>
           <section>
@@ -348,7 +354,9 @@
               </svg>
             </div>
             <ul>
-              <li class="fragment fade-in">Different neural architectures for each network</li>
+              <li class="fragment fade-in">
+                Different neural architectures for each network
+              </li>
               <li class="fragment fade-in">Methods: Bagging, stacking</li>
               <li class="fragment fade-in">
                 Choose $ \{\theta_1,\dots,\theta_M\} \in \hat{\Theta} =
@@ -386,13 +394,20 @@
           <h3>What value does the thesis provide?</h3>
           <ol>
             <li class="fragment fade-in">
-              Analyze if heterogeneous ensembles perform better at
-              classification tasks.
+              Analyze if heterogeneous ensembles perform at least as well as
+              homogeneous ensembles in classification tasks.
             </li>
             <li class="fragment fade-in">
               Answer the question if specific neural network architectures in
-              heterogeneous ensembles lead to better uncertainty quantification.
+              heterogeneous ensembles are better at detecting in- and
+              out-of-distribution examples.
             </li>
+            <ul class="fragment fade-in">
+              <li>
+                Check if this is due to more diverse model parameters $ \theta
+                $.
+              </li>
+            </ul>
           </ol>
         </section>
         <section>
@@ -518,8 +533,12 @@
                 SGD optimizer (lr = 0.05, momentum = 0.9, weight decay = $
                 5\times 10^{-4} $), lr halfed every fifth epoch
               </li>
-              <li class="fragment fade-in">Validation split: 20% of training data</li>
-              <li class="fragment fade-in">Loss function: Cross entropy loss</li>
+              <li class="fragment fade-in">
+                Validation split: 20% of training data
+              </li>
+              <li class="fragment fade-in">
+                Loss function: Cross entropy loss
+              </li>
               <li class="fragment fade-in">
                 Ensemble prediction:<br />
                 $ p(y\mid x) = M^{-1}\sum_{m=1}^M p_{\theta_m}(y\mid x) $
